@@ -15,19 +15,20 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
       setAuthenticate(false);
     }
   };
-    const search = (event) => {
-     if (event.key === "Enter") 
-     {let keyword = event.target.value
-     navigate(`/?q=${keyword}`) 
-     }
+
+  const search = (event) => {
+    if (event.key === "Enter") {
+      let keyword = event.target.value;
+      navigate(`/?q=${keyword}`);
     }
+  };
 
   return (
     <div>
       <div>
         <div className='login-button' onClick={goToLogin}>
           <FontAwesomeIcon icon={faUser} />
-          <div>{authenticate == false ? '로그인' : '로그아웃'}</div>
+          <div>{authenticate === false ? '로그인' : '로그아웃'}</div>
         </div>
       </div>
 
@@ -35,7 +36,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
         <img
           width={100}
           src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/2560px-H%26M-Logo.svg.png'
-          alt='H&M Logo'
+          alt='H&M Logo' // 'H&M Logo'를 적절한 대체 텍스트로 변경합니다.
         />
       </a>
 
@@ -48,7 +49,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
 
         <div className='search-bar'>
           <FontAwesomeIcon className='search-icon' icon={faSearch} />
-          <input className='search-input' type='text' onKeyPress={(event)=>search(event)}/>
+          <input className='search-input' type='text' onKeyPress={search} />
         </div>
       </div>
     </div>
